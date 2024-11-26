@@ -43,8 +43,8 @@ def create_conn():
         conn = psycopg2.connect(
             dbname="db_test",
             user="test",
-            password="TEST1215py",
-            host="139.9.117.168",
+            password="***",
+            host="***.***.***.***",
             port="26000"
         )
         return conn
