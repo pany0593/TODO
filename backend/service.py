@@ -1,9 +1,7 @@
 from backend import mapper
 from backend.utils import SnowflakeIDGenerator, hash_password
 from backend.utils import config
-from flask_jwt_extended import create_access_token, get_jwt_identity
-import jwt
-import datetime
+from flask_jwt_extended import create_access_token
 
 # 初始化雪花算法
 generator = SnowflakeIDGenerator(data_center_id=1, machine_id=1)
@@ -45,11 +43,10 @@ def login_user(username: str, password: str) -> str:
 
     # 哈希输入密码
     hashed_password = hash_password(password, config['app']['secret_key'])
-    print(mapper.get_user_password(username))
     # 验证用户名和密码
     if hashed_password == mapper.get_user_password(username):
         # 用户验证通过，生成 JWT token
-        token = create_access_token(identity=username)
+        token = create_access_token(identity=mapper.get_user_id(username))
         return token
     else:
         raise ValueError("Invalid username or password.")

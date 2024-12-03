@@ -1,9 +1,21 @@
 from flask import Blueprint, request, jsonify
 from backend import service
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # 创建蓝图
 bp = Blueprint('api', __name__)
+
+
+@jwt_required()
+@bp.route('/add_course', methods=['POST'])
+def add_course():
+    """
+    添加课程
+    """
+    data = request.json
+    if not data or not all(key in data for key in ['course_name', 'teacher_name']):
+        return jsonify({'error': 'Missing required fields'}), 400
+    user_id = get_jwt_identity()
 
 
 @bp.route('/register', methods=['POST'])
