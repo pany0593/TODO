@@ -1,3 +1,4 @@
+import datetime
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from backend.controller import register_routes
@@ -10,6 +11,7 @@ def create_app():
     """
     app = Flask(__name__)
     app.config['JWT_SECRET_KEY'] = config['app']['secret_key']
+    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=7)
     jwt = JWTManager(app)
     # 注册路由
     register_routes(app)
