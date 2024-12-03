@@ -7,6 +7,23 @@ from flask_jwt_extended import create_access_token
 generator = SnowflakeIDGenerator(data_center_id=1, machine_id=1)
 
 
+def add_course(userid, course_name, teacher_name):
+    """
+    添加课程
+    """
+    # 检查课程名是否重复
+    if mapper.check_coursename_exists(course_name):
+        raise ValueError('Username already exists')
+    # 生成课程id
+    course_id = f"COURSE{generator.generate_id()}"
+    # 保存课程信息
+    result = mapper.insert_new_course(course_id, userid, course_name, teacher_name)
+    if result:
+        return result
+    else:
+        raise ValueError('Failed to register user')
+
+
 def register_user(username, password, email):
     """
     注册用户
@@ -50,4 +67,3 @@ def login_user(username: str, password: str) -> str:
         return token
     else:
         raise ValueError("Invalid username or password.")
-

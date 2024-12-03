@@ -1,23 +1,19 @@
 import datetime
 from flask import Flask
-from flask_jwt_extended import JWTManager
-from backend.controller import register_routes
+
+from backend.controller import bp, jwt
 from backend.utils import config
 
-
-def create_app():
-    """
-    创建并配置 Flask 应用
-    """
-    app = Flask(__name__)
-    app.config['JWT_SECRET_KEY'] = config['app']['secret_key']
-    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=7)
-    jwt = JWTManager(app)
-    # 注册路由
-    register_routes(app)
-    return app
-
+"""
+创建并配置 Flask 应用
+"""
+app = Flask(__name__)
+app.config['JWT_SECRET_KEY'] = config['app']['secret_key']
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=7)
+app.config['JWT_TOKEN_LOCATION'] = ['headers']
+jwt = jwt.init_app(app)
+# 注册路由
+app.register_blueprint(bp, url_prefix='/api')
 
 if __name__ == '__main__':
-    app = create_app()
     app.run(host='0.0.0.0', port=5000, debug=True)

@@ -1,21 +1,34 @@
-from flask import Blueprint, request, jsonify
+from flask import request, jsonify, Blueprint
+from flask_jwt_extended import jwt_required, get_jwt_identity, JWTManager
 from backend import service
-from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # 创建蓝图
 bp = Blueprint('api', __name__)
+jwt = JWTManager()
 
 
-@jwt_required()
 @bp.route('/add_course', methods=['POST'])
+@jwt_required()
 def add_course():
     """
     添加课程
     """
+    # try:
+    #     # Manually verify JWT token
+    #     verify_jwt_in_request()
+    #     # If JWT is valid, proceed with your logic
+    # except Exception as e:
+    #     return jsonify(message="Token is invalid or missing"), 401
+
     data = request.json
     if not data or not all(key in data for key in ['course_name', 'teacher_name']):
         return jsonify({'error': 'Missing required fields'}), 400
     user_id = get_jwt_identity()
+    try:
+        course_id = service.add_course(user_id, data['course_name'], data['teacher_name'])
+        return jsonify({'course_id': course_id}), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 @bp.route('/register', methods=['POST'])
@@ -50,10 +63,3 @@ def login():
             return jsonify({'error': 'Invalid username or password'}), 401
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-
-def register_routes(app):
-    """
-    注册路由
-    """
-    app.register_blueprint(bp, url_prefix='/api')

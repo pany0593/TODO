@@ -6,6 +6,22 @@ from backend.utils import config
 logger = logging.getLogger(__name__)
 
 
+def insert_new_course(course_id, userid, course_name, teacher_name):
+    sql = "INSERT INTO course (course_id, user_id, course_name, teacher_name) VALUES (%s, %s, %s, %s) RETURNING course_id;"
+    params = (course_id, userid, course_name, teacher_name)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    logger.info(f"Inserted new course<{course_name}> with user<{userid}>. Course ID: {result[0] if result else 'Unknown'}")
+    return result[0] if result else None
+
+
+def check_coursename_exists(course_name):
+    sql = "SELECT 1 FROM course WHERE course_name = %s;"
+    params = (course_name,)
+    result = execute_query(sql, params, fetch_one=True)
+    logger.info(f"Checked existence of course_name<{course_name}>: {'Exists' if result else 'Not exists'}")
+    return result is not None
+
+
 def get_user_id(username: str) -> str:
     sql = "SELECT user_id FROM users WHERE username = %s;"
     params = (username,)
