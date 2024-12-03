@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from backend import service
+from flask_jwt_extended import jwt_required
 
 # 创建蓝图
 bp = Blueprint('api', __name__)
@@ -30,9 +31,9 @@ def login():
         return jsonify({'error': 'Missing username or password'}), 400
 
     try:
-        user = service.login_user(data['username'], data['password'])
-        if user:
-            return jsonify({'message': 'Login successful', 'user': user}), 200
+        token = service.login_user(data['username'], data['password'])
+        if token:
+            return jsonify({'message': 'Login successful', 'token': token}), 200
         else:
             return jsonify({'error': 'Invalid username or password'}), 401
     except Exception as e:

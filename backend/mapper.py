@@ -6,6 +6,14 @@ from backend.utils import config
 logger = logging.getLogger(__name__)
 
 
+def get_user_password(username: str) -> str:
+    sql = "SELECT password FROM users WHERE username = %s;"
+    params = (username,)
+    result = execute_query(sql, params, fetch_one=True)
+    logger.info(f"Checked existence of username<{username}>: {'Exists' if result else 'Not exists'}")
+    return result[0]
+
+
 def insert_new_user(userid: str, username: str, password: str, email: str) -> int:
     """
     插入新用户到数据库。
