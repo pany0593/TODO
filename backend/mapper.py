@@ -7,58 +7,78 @@ logger = logging.getLogger(__name__)
 
 
 def insert_new_user(userid: str, username: str, password: str, email: str) -> int:
-    """Insert a new user into the database.
+    """
+    插入新用户到数据库。
 
     Args:
-        userid (str): The ID of the new user.
-        username (str): The username of the new user.
-        password (str): The password of the new user.
-        email (str): The email of the new user.
+        userid (str): 用户 ID。
+        username (str): 用户名。
+        password (str): 密码。
+        email (str): 邮箱。
 
     Returns:
-        int: The ID of the inserted user.
+        int: 插入用户的 ID。
     """
-    conn = create_conn()  # 创建数据库连接
-    try:
-        sql = "insert into users (user_id,username, password, email) values (%s,%s, %s, %s) RETURNING user_id;"  # 固定表名，防止动态 SQL 引发问题
-        with conn.cursor() as cursor:
-            cursor.execute(sql, (userid, username, password, email))  # 参数化查询防止 SQL 注入
-            result = cursor.fetchone()  # 获取插入的用户 ID
-            conn.commit()  # 提交事务
-            logger.info(
-                f"Inserted new user<{username}> with email<{email}>. User ID: {result[0] if result else 'Unknown'}")
-        return result[0] if result else None  # 返回插入的用户 ID
-    except Exception as e:
-        conn.rollback()  # 如果发生异常，回滚事务
-        logger.error(f"Failed to insert user<{username}>: {e}")
-        raise
-    finally:
-        conn.close()  # 确保数据库连接被关闭
+    sql = "INSERT INTO users (user_id, username, password, email) VALUES (%s, %s, %s, %s) RETURNING user_id;"
+    params = (userid, username, password, email)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    logger.info(f"Inserted new user<{username}> with email<{email}>. User ID: {result[0] if result else 'Unknown'}")
+    return result[0] if result else None
 
 
 def check_username_exists(username: str) -> bool:
     """
-    检查用户名是否存在
+    检查用户名是否存在。
+
     Args:
-        username (str): The username to check.
+        username (str): 要检查的用户名。
 
     Returns:
-        bool: True if the username exists, False otherwise.
+        bool: 用户名是否存在。
+    """
+    sql = "SELECT 1 FROM users WHERE username = %s;"
+    params = (username,)
+    result = execute_query(sql, params, fetch_one=True)
+    logger.info(f"Checked existence of username<{username}>: {'Exists' if result else 'Not exists'}")
+    return result is not None
+
+
+def execute_query(sql: str, params: tuple = (), fetch_one: bool = False, fetch_all: bool = False,
+                  commit: bool = False) -> any:
+    """
+    执行通用数据库查询。
+
+    Args:
+        sql (str): 要执行的 SQL 语句。
+        params (tuple): SQL 语句的参数。
+        fetch_one (bool): 是否只获取一条记录。
+        fetch_all (bool): 是否获取所有记录。
+        commit (bool): 是否需要提交事务（适用于增删改操作）。
+
+    Returns:
+        any: 查询结果（根据 fetch_one 和 fetch_all 决定返回格式）。
     """
     conn = create_conn()  # 创建数据库连接
     try:
-        sql = "select 1 from users where username = %s;"  # 使用固定表名，避免不必要的动态 SQL
         with conn.cursor() as cursor:
-            cursor.execute(sql, (username,))  # 传递参数以防止 SQL 注入
-            result = cursor.fetchone()  # 检查是否有匹配的记录
-            logger.info(f"Checked existence of username<{username}>: {'Exists' if result else 'Not exists'}")
-        return result is not None  # 如果找到记录则返回 True，否则返回 False
+            cursor.execute(sql, params)  # 参数化查询，防止 SQL 注入
+            if fetch_one:
+                result = cursor.fetchone()
+            elif fetch_all:
+                result = cursor.fetchall()
+            else:
+                result = None
+
+            if commit:
+                conn.commit()  # 仅在需要时提交事务
+            return result
     except Exception as e:
-        conn.rollback()  # 发生错误时回滚
-        logger.error(f"An error occurred while checking username<{username}>: {e}")
+        if commit:  # 如果启用了事务，发生异常时回滚
+            conn.rollback()
+        logger.error(f"Database query failed: {e}")
         raise
     finally:
-        conn.close()  # 确保数据库连接被关闭
+        conn.close()  # 确保关闭数据库连接
 
 
 def create_conn():

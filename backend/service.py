@@ -14,11 +14,11 @@ def register_user(username, password, email):
     if mapper.check_username_exists(username):
         raise ValueError('Username already exists')
     # 加密密码
-    hasded_password = hash_password(password,config['app']['secret_key'])
+    hashed_password = hash_password(password,config['app']['secret_key'])
     # 生成用户id
     userid = generator.generate_id()
     # 保存用户信息
-    result = mapper.insert_new_user(userid, username, password, email)
+    result = mapper.insert_new_user(userid, username, hashed_password, email)
     if result:
         return result
     else:
