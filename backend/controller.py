@@ -7,19 +7,29 @@ bp = Blueprint('api', __name__)
 jwt = JWTManager()
 
 
+@bp.route('/add_memo', methods=['POST'])
+@jwt_required()
+def add_memo():
+    """
+    添加备忘录
+    """
+    data = request.json
+    if not data or not all(key in data for key in ['course_name', 'status', 'deadline', 'description']):
+        return jsonify({'error': 'Missing required fields'}), 400
+    user_id = get_jwt_identity()
+    try:
+        memo_id = service.add_memo(user_id, data['course_name'], data['status'], data['deadline'], data['description'])
+        return jsonify({'memo_id': memo_id}), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 @bp.route('/add_course', methods=['POST'])
 @jwt_required()
 def add_course():
     """
     添加课程
     """
-    # try:
-    #     # Manually verify JWT token
-    #     verify_jwt_in_request()
-    #     # If JWT is valid, proceed with your logic
-    # except Exception as e:
-    #     return jsonify(message="Token is invalid or missing"), 401
-
     data = request.json
     if not data or not all(key in data for key in ['course_name', 'teacher_name']):
         return jsonify({'error': 'Missing required fields'}), 400

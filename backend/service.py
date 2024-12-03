@@ -7,13 +7,32 @@ from flask_jwt_extended import create_access_token
 generator = SnowflakeIDGenerator(data_center_id=1, machine_id=1)
 
 
+def add_memo(user_id, course_name, status, deadline, description):
+    """
+    添加备忘录
+    """
+    # 检查备忘录是否重复
+    if mapper.check_memo_exists(course_name,deadline,description):
+        raise ValueError('memo already exists')
+    # 生成备忘录id
+    memo_id = f"MEMO{generator.generate_id()}"
+    # 查找课程id
+    course_id = mapper.get_course_id(course_name)
+    # 保存课程信息
+    result = mapper.insert_new_memo(memo_id, user_id, course_id, status, deadline, description)
+    if result:
+        return result
+    else:
+        raise ValueError('Failed to add memo')
+
+
 def add_course(userid, course_name, teacher_name):
     """
     添加课程
     """
     # 检查课程名是否重复
     if mapper.check_coursename_exists(course_name):
-        raise ValueError('Username already exists')
+        raise ValueError('course name already exists')
     # 生成课程id
     course_id = f"COURSE{generator.generate_id()}"
     # 保存课程信息
@@ -21,7 +40,7 @@ def add_course(userid, course_name, teacher_name):
     if result:
         return result
     else:
-        raise ValueError('Failed to register user')
+        raise ValueError('Failed to add course')
 
 
 def register_user(username, password, email):
