@@ -13,7 +13,7 @@ CREATE TABLE course (
     user_id INT NOT NULL,                         -- 用户ID，外键
     course_name VARCHAR(100) NOT NULL,             -- 课程名称
     teacher_name VARCHAR(50) NOT NULL,              -- 任课教师
-    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE, -- 关联用户表
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE -- 关联用户表
 );
 
 -- 创建任务表
