@@ -19,8 +19,8 @@ CREATE TABLE course (
 -- 创建任务表
 CREATE TABLE task (
     task_id VARCHAR(50) PRIMARY KEY,        -- 任务ID，主键
-    user_id INT NOT NULL,                          -- 用户ID，外键
-    course_id INT NOT NULL,                        -- 课程ID，外键
+    user_id VARCHAR(50) NOT NULL,                          -- 用户ID，外键
+    course_id VARCHAR(50) NOT NULL,                        -- 课程ID，外键
     status INT NOT NULL,                          -- 任务状态：待完成0/已完成1
     deadline DATE NOT NULL,                        -- 截止日期
     description TEXT NOT NULL,                     -- 任务描述
