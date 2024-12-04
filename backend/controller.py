@@ -7,6 +7,26 @@ bp = Blueprint('api', __name__)
 jwt = JWTManager()
 
 
+@bp.route('/update_user', methods=['POST'])
+@jwt_required()
+def update_user():
+    """
+    修改课程
+    """
+    data = request.json
+    if not data or not all(key in data for key in ['username', 'old_password', 'new_password', 'email']):
+        return jsonify({'error': 'Missing required fields'}), 400
+    user_id = get_jwt_identity()
+    try:
+        token = service.update_user(user_id, data['username'], data['old_password'], data['new_password'], data['email'])
+        if token:
+            return jsonify({'message': 'Update user successful', 'token': token}), 200
+        else:
+            return jsonify({'error': 'Invalid params'}), 401
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 @bp.route('/courses', methods=['GET'])
 @jwt_required()
 def get_courses():

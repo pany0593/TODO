@@ -6,6 +6,25 @@ from backend.utils import config
 logger = logging.getLogger(__name__)
 
 
+def update_user(user_id, username, new_password, email):
+    """
+    更新课程信息
+    """
+    sql = "UPDATE users SET username = %s, password = %s, email = %s WHERE user_id = %s RETURNING user_id;"
+    params = (username, new_password, email, user_id)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    logger.info(f"Updated user<{user_id}> : {'Success' if result else 'Failed'}")
+    return result[0] if result else None
+
+
+def get_user_password_id(user_id: str) -> str:
+    sql = "SELECT password FROM users WHERE user_id = %s;"
+    params = (user_id,)
+    result = execute_query(sql, params, fetch_one=True)
+    logger.info(f"Checked existence of user_id<{user_id}>: {'Exists' if result else 'Not exists'}")
+    return result[0]
+
+
 def check_memo_exists_by_id(task_id):
     """
     检查指定的备忘录ID是否存在
