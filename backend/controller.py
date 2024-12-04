@@ -21,7 +21,7 @@ def get_courses():
         return jsonify({'error': str(e)}), 500
 
 
-@bp.route('/delete_course', methods=['DELETE'])
+@bp.route('/course', methods=['DELETE'])
 @jwt_required()
 def delete_course():
     """
