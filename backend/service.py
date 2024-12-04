@@ -7,6 +7,26 @@ from flask_jwt_extended import create_access_token
 generator = SnowflakeIDGenerator(data_center_id=1, machine_id=1)
 
 
+def update_user(user_id, username, old_password, new_password, email):
+    # 检查新用户名是否存在
+    tmp_user_id = mapper.get_user_id(username)
+    if tmp_user_id != user_id and tmp_user_id is not None:
+        raise ValueError("Username exist.")
+    # 哈希输入密码
+    hashed_password = hash_password(old_password, config['app']['secret_key'])
+    # 验证用户名和密码
+    if hashed_password == mapper.get_user_password_id(user_id):
+        # 用户验证通过，生成新密码
+        hashed_new_password = hash_password(new_password, config['app']['secret_key'])
+        # 更新用户信息
+        mapper.update_user(user_id, username, hashed_new_password, email)
+        # 生成 JWT token
+        token = create_access_token(identity=user_id)
+        return token
+    else:
+        raise ValueError("Wrong old_password.")
+
+
 def get_courses(user_id):
     """
     获取所有课程
