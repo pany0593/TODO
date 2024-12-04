@@ -7,6 +7,109 @@ bp = Blueprint('api', __name__)
 jwt = JWTManager()
 
 
+@bp.route('/get_courses', methods=['GET'])
+@jwt_required()
+def get_courses():
+    """
+    获取所有课程
+    """
+    user_id = get_jwt_identity()
+    try:
+        courses = service.get_courses(user_id)
+        return jsonify({'courses': courses}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@bp.route('/delete_course', methods=['DELETE'])
+@jwt_required()
+def delete_course():
+    """
+    删除课程
+    """
+    data = request.json
+    if not data or 'course_id' not in data:
+        return jsonify({'error': 'Missing course_id'}), 400
+    user_id = get_jwt_identity()
+    try:
+        service.delete_course(user_id, data['course_id'])
+        return jsonify({'message': 'Course deleted successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@bp.route('/update_course', methods=['POST'])
+@jwt_required()
+def update_course():
+    """
+    修改课程
+    """
+    data = request.json
+    if not data or not all(key in data for key in ['course_id', 'course_name', 'teacher_name']):
+        return jsonify({'error': 'Missing required fields'}), 400
+    user_id = get_jwt_identity()
+    try:
+        service.update_course(user_id, data['course_id'], data['course_name'], data['teacher_name'])
+        return jsonify({'message': 'Course updated successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@bp.route('/get_memo', methods=['GET'])
+@jwt_required()
+def get_memo():
+    """
+    获取所有备忘录
+    """
+    user_id = get_jwt_identity()
+    try:
+        memos = service.get_memos(user_id)
+        return jsonify({'memos': memos}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@bp.route('/delete_memo', methods=['DELETE'])
+@jwt_required()
+def delete_memo():
+    """
+    删除备忘录
+    """
+    data = request.json
+    if not data or 'task_id' not in data:
+        return jsonify({'error': 'Missing task_id'}), 400
+    user_id = get_jwt_identity()
+    try:
+        service.delete_memo(user_id, data['task_id'])
+        return jsonify({'message': 'Memo deleted successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@bp.route('/update_memo', methods=['POST'])
+@jwt_required()
+def update_memo():
+    """
+    修改备忘录
+    """
+    data = request.json
+    if not data or not all(key in data for key in ['task_id', 'course_name', 'status', 'deadline', 'description']):
+        return jsonify({'error': 'Missing required fields'}), 400
+    user_id = get_jwt_identity()
+    try:
+        service.update_memo(
+            user_id,
+            data['task_id'],
+            data['course_name'],
+            data['status'],
+            data['deadline'],
+            data['description']
+        )
+        return jsonify({'message': 'Memo updated successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 @bp.route('/add_memo', methods=['POST'])
 @jwt_required()
 def add_memo():

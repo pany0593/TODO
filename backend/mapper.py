@@ -6,6 +6,112 @@ from backend.utils import config
 logger = logging.getLogger(__name__)
 
 
+def check_memo_exists_by_id(task_id):
+    """
+    检查指定的备忘录ID是否存在
+    """
+    sql = "SELECT 1 FROM task WHERE task_id = %s;"
+    params = (task_id,)
+    result = execute_query(sql, params, fetch_one=True)
+    logger.info(f"Checked existence of task_id<{task_id}>: {'Exists' if result else 'Not exists'}")
+    return result is not None
+
+
+def check_course_exists_by_id(course_id):
+    """
+    检查指定的课程ID是否存在
+    """
+    sql = "SELECT 1 FROM course WHERE course_id = %s;"
+    params = (course_id,)
+    result = execute_query(sql, params, fetch_one=True)
+    logger.info(f"Checked existence of course_id<{course_id}>: {'Exists' if result else 'Not exists'}")
+    return result is not None
+
+
+def get_courses_by_user(user_id):
+    """
+    获取用户的所有课程
+    """
+    sql = """
+        SELECT course_id, course_name, teacher_name 
+        FROM course 
+        WHERE user_id = %s;
+    """
+    params = (user_id,)
+    result = execute_query(sql, params, fetch_all=True)
+    logger.info(f"Fetched courses for user<{user_id}>: {len(result) if result else 0} courses found")
+    return result
+
+
+def delete_course(course_id, user_id):
+    """
+    删除课程
+    """
+    sql = "DELETE FROM course WHERE course_id = %s AND user_id = %s RETURNING course_id;"
+    params = (course_id, user_id)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    logger.info(f"Deleted course<{course_id}> for user<{user_id}>: {'Success' if result else 'Failed'}")
+    return result[0] if result else None
+
+
+def update_course(course_id, user_id, course_name, teacher_name):
+    """
+    更新课程信息
+    """
+    sql = """
+        UPDATE course 
+        SET course_name = %s, teacher_name = %s 
+        WHERE course_id = %s AND user_id = %s 
+        RETURNING course_id;
+    """
+    params = (course_name, teacher_name, course_id, user_id)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    logger.info(f"Updated course<{course_id}> for user<{user_id}>: {'Success' if result else 'Failed'}")
+    return result[0] if result else None
+
+
+def get_memos_by_user(user_id):
+    """
+    获取用户的所有备忘录
+    """
+    sql = """
+        SELECT task_id, course_id, status, deadline, description 
+        FROM task 
+        WHERE user_id = %s;
+    """
+    params = (user_id,)
+    result = execute_query(sql, params, fetch_all=True)
+    logger.info(f"Fetched memos for user<{user_id}>: {len(result) if result else 0} memos found")
+    return result
+
+
+def delete_memo(task_id, user_id):
+    """
+    删除备忘录
+    """
+    sql = "DELETE FROM task WHERE task_id = %s AND user_id = %s RETURNING task_id;"
+    params = (task_id, user_id)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    logger.info(f"Deleted memo<{task_id}> for user<{user_id}>: {'Success' if result else 'Failed'}")
+    return result[0] if result else None
+
+
+def update_memo(task_id, user_id, course_id, status, deadline, description):
+    """
+    更新备忘录信息
+    """
+    sql = """
+        UPDATE task 
+        SET course_id = %s, status = %s, deadline = %s, description = %s 
+        WHERE task_id = %s AND user_id = %s 
+        RETURNING task_id;
+    """
+    params = (course_id, status, deadline, description, task_id, user_id)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    logger.info(f"Updated memo<{task_id}> for user<{user_id}>: {'Success' if result else 'Failed'}")
+    return result[0] if result else None
+
+
 def get_course_id(course_name):
     sql = "SELECT course_id FROM course WHERE course_name = %s;"
     params = (course_name,)
@@ -27,7 +133,8 @@ def check_memo_exists(course_name, deadline, description):
     sql = "SELECT 1 FROM task WHERE course_name = %s, deadline = %s, description = %s;"
     params = (course_name, deadline, description)
     result = execute_query(sql, params, fetch_one=True)
-    logger.info(f"Checked existence of memo<{course_name,deadline,description}>: {'Exists' if result else 'Not exists'}")
+    logger.info(
+        f"Checked existence of memo<{course_name, deadline, description}>: {'Exists' if result else 'Not exists'}")
     return result is not None
 
 

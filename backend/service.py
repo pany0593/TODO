@@ -7,12 +7,100 @@ from flask_jwt_extended import create_access_token
 generator = SnowflakeIDGenerator(data_center_id=1, machine_id=1)
 
 
+def get_courses(user_id):
+    """
+    获取所有课程
+    """
+    # 查询用户的所有课程
+    courses = mapper.get_courses_by_user(user_id)
+    if courses is not None:
+        return courses
+    else:
+        raise ValueError('Failed to fetch courses')
+
+
+def delete_course(user_id, course_id):
+    """
+    删除课程
+    """
+    # 检查课程是否存在
+    if not mapper.check_course_exists_by_id(course_id):
+        raise ValueError('Course does not exist')
+    # 删除课程
+    result = mapper.delete_course(course_id, user_id)
+    if result:
+        return True
+    else:
+        raise ValueError('Failed to delete course')
+
+
+def update_course(user_id, course_id, course_name, teacher_name):
+    """
+    修改课程
+    """
+    # 检查课程是否存在
+    if not mapper.check_course_exists_by_id(course_id):
+        raise ValueError('Course does not exist')
+    # 更新课程信息
+    result = mapper.update_course(course_id, user_id, course_name, teacher_name)
+    if result:
+        return result
+    else:
+        raise ValueError('Failed to update course')
+
+
+def get_memos(user_id):
+    """
+    获取所有备忘录
+    """
+    # 查询用户的所有备忘录
+    memos = mapper.get_memos_by_user(user_id)
+    if memos is not None:
+        return memos
+    else:
+        raise ValueError('Failed to fetch memos')
+
+
+def delete_memo(user_id, task_id):
+    """
+    删除备忘录
+    """
+    # 检查备忘录是否存在
+    if not mapper.check_memo_exists_by_id(task_id):
+        raise ValueError('Memo does not exist')
+    # 删除备忘录
+    result = mapper.delete_memo(task_id, user_id)
+    if result:
+        return True
+    else:
+        raise ValueError('Failed to delete memo')
+
+
+def update_memo(user_id, task_id, course_name, status, deadline, description):
+    """
+    修改备忘录
+    """
+    # 检查备忘录是否存在
+    if not mapper.check_memo_exists_by_id(task_id):
+        raise ValueError('Memo does not exist')
+    # 查找课程id
+    course_id = mapper.get_course_id(course_name)
+    if not course_id:
+        raise ValueError('Course does not exist')
+    # 更新备忘录信息
+    result = mapper.update_memo(task_id, user_id, course_id, status, deadline, description)
+    if result:
+        return result
+    else:
+        raise ValueError('Failed to update memo')
+
+
 def add_memo(user_id, course_name, status, deadline, description):
     """
     添加备忘录
     """
     # 检查备忘录是否重复
-    if mapper.check_memo_exists(course_name,deadline,description):
+    if mapper.check_memo_exists(course_name, deadline, description):
         raise ValueError('memo already exists')
     # 生成备忘录id
     memo_id = f"MEMO{generator.generate_id()}"
