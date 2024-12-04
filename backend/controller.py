@@ -7,7 +7,7 @@ bp = Blueprint('api', __name__)
 jwt = JWTManager()
 
 
-@bp.route('/get_courses', methods=['GET'])
+@bp.route('/courses', methods=['GET'])
 @jwt_required()
 def get_courses():
     """
