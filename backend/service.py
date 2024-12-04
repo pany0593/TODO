@@ -99,13 +99,13 @@ def add_memo(user_id, course_name, status, deadline, description):
     """
     添加备忘录
     """
+    # 查找课程id
+    course_id = mapper.get_course_id(course_name)
     # 检查备忘录是否重复
-    if mapper.check_memo_exists(course_name, deadline, description):
+    if mapper.check_memo_exists(course_id, deadline, description):
         raise ValueError('memo already exists')
     # 生成备忘录id
     memo_id = f"MEMO{generator.generate_id()}"
-    # 查找课程id
-    course_id = mapper.get_course_id(course_name)
     # 保存课程信息
     result = mapper.insert_new_memo(memo_id, user_id, course_id, status, deadline, description)
     if result:

@@ -129,12 +129,12 @@ def insert_new_memo(memo_id, user_id, course_id, status, deadline, description):
     return result[0] if result else None
 
 
-def check_memo_exists(course_name, deadline, description):
-    sql = "SELECT 1 FROM task WHERE course_name = %s, deadline = %s, description = %s;"
-    params = (course_name, deadline, description)
+def check_memo_exists(course_id, deadline, description):
+    sql = "SELECT 1 FROM task WHERE course_id = %s and deadline = %s and description = %s;"
+    params = (course_id, deadline, description)
     result = execute_query(sql, params, fetch_one=True)
     logger.info(
-        f"Checked existence of memo<{course_name, deadline, description}>: {'Exists' if result else 'Not exists'}")
+        f"Checked existence of memo<{course_id, deadline, description}>: {'Exists' if result else 'Not exists'}")
     return result is not None
 
 
