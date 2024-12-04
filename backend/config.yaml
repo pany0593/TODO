@@ -1,0 +1,8 @@
+database:
+  username: "test"
+  password: "TEST1215py"
+  url: "139.9.117.168"
+  port: "26000"
+  database: "db_test"
+app:
+  secret_key: "pany0593secret_keyyyy"

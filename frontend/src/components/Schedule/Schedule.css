@@ -1,0 +1,24 @@
+.schedule {
+    display: flex;
+    flex: 1;
+    overflow-x: auto;
+}
+
+.day-column {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.day-column h3 {
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.hour-block {
+    padding: 5px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    text-align: center;
+}
