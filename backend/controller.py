@@ -55,7 +55,7 @@ def update_course():
         return jsonify({'error': str(e)}), 500
 
 
-@bp.route('/get_memo', methods=['GET'])
+@bp.route('/memos', methods=['GET'])
 @jwt_required()
 def get_memo():
     """
@@ -69,7 +69,7 @@ def get_memo():
         return jsonify({'error': str(e)}), 500
 
 
-@bp.route('/delete_memo', methods=['DELETE'])
+@bp.route('/memo', methods=['DELETE'])
 @jwt_required()
 def delete_memo():
     """
