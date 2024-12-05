@@ -1,4 +1,3 @@
-import React from 'react';
 import './TopButton.css';  // 引入外部CSS文件
 
 function TopButton() {
