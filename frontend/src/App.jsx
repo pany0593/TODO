@@ -1,19 +1,20 @@
-import React from "react";
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Schedule from "./components/Schedule/Schedule";
-import "./App.css";
+import './App.css';
+import TopBar from './components/TopBar/TopBar.jsx';
+import LeftPanel from './components/LeftPanel/LeftPanel.jsx';
+import CalendarWeek from './components/CalendarWeek/CalendarWeek.jsx';
 
-const App = () => {
+function App() {
     return (
         <div className="app">
-            <Header />
-            <div className="main-container">
-                <Sidebar />
-                <Schedule />
+            <TopBar />
+            <div className="main-content">
+                <LeftPanel />
+                <div className="right-panel">
+                    <CalendarWeek />
+                </div>
             </div>
         </div>
     );
-};
+}
 
 export default App;
