@@ -1,0 +1,18 @@
+/* TopBar.css */
+
+/* 使父容器 .top-bar 使用 flex 布局 */
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* 确保标题和按钮分开 */
+    align-items: center;  /* 垂直居中对齐 */
+    padding: 10px 20px;
+    background-color: #6750a4;
+}
+
+/* .top-button 使按钮靠右 */
+.top-button {
+    margin-left: auto; /* 让 .top-button 组件自动填充剩余空间，从而推到右侧 */
+}
+h2{
+    color: white;
+}
