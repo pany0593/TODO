@@ -1,8 +1,10 @@
 import "./ButtonComponent.css"
 
-function ButtonComponent() {
+function ButtonComponent({ onClick }) {
     return (
-        <button className="left-button">Add Memo</button>
+        <div>
+            <button className="left-button" onClick={onClick}>Add Memo</button>
+        </div>
     );
 }
 

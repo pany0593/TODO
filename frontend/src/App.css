@@ -30,3 +30,15 @@
   align-items: center;
   padding: 0 20px;
 }
+
+.form-container{
+  position: fixed;  /* 固定在页面上 */
+  top: 50%;         /* 垂直居中 */
+  left: 50%;        /* 水平居中 */
+  transform: translate(-50%, -50%);  /* 完全居中 */
+  z-index: 9999;    /* 确保 AddMemo 在最上层 */
+  background-color: white;  /* 设置背景色（可选） */
+  padding: 20px;           /* 内边距（可选） */
+  border-radius: 10px;     /* 圆角（可选） */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果（可选） */
+}
