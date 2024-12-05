@@ -19,8 +19,8 @@ function CalendarApp() {
             {
                 id: '1',
                 title: 'Event 1',
-                start: '2023-12-16',
-                end: '2023-12-16',
+                start: '2024-12-16',
+                end: '2024-12-17',
             },
         ],
         plugins: [eventsService]
@@ -29,7 +29,7 @@ function CalendarApp() {
     useEffect(() => {
         // get all events
         eventsService.getAll()
-    }, [])
+    }, [eventsService])
 
     return (
         <div>
