@@ -36,7 +36,7 @@
 button[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #947ece;
     color: white;
     border: none;
     border-radius: 5px;
@@ -45,7 +45,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #6750a4;
 }
 
 p {
