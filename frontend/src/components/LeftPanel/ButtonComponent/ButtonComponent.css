@@ -1,0 +1,19 @@
+
+/* 圆形按钮样式 */
+.left-button {
+    padding: 15px;
+    width: 100%;    /* 按钮的宽度 */
+    background-color: #947ece;  /* 按钮背景颜色 */
+    color: white;   /* 按钮文字颜色 */
+    cursor: pointer;    /* 鼠标悬停时变为手型 */
+    display: flex;
+    border: none;   /* 去除边框 */
+    justify-content: center;
+    align-items: center;  /* 让按钮文字居中 */
+    border-radius: 5px;  /* 圆角按钮 */
+}
+
+/* 悬停效果 */
+.left-button:hover {
+    background-color: #8471b5;
+}

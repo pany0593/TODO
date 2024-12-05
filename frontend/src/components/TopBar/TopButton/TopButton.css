@@ -3,12 +3,12 @@
 /* 圆形按钮样式 */
 .top-button {
     padding: 10px;
-    width: 35px;    /* 按钮的宽度 */
+    width: 50px;    /* 按钮的宽度 */
     height: 35px;   /* 按钮的高度，与宽度相同，形成圆形 */
     background-color: white;  /* 按钮背景颜色 */
     color: black;   /* 按钮文字颜色 */
     border: none;   /* 去除边框 */
-    border-radius: 50%;  /* 圆形按钮 */
+    border-radius: 5px;  /* 圆形按钮 */
     cursor: pointer;    /* 鼠标悬停时变为手型 */
     display: flex;
     justify-content: center;
@@ -17,7 +17,5 @@
 
 /* 悬停效果 */
 .top-button:hover {
-    background-color: beige;
-    width: 37px;    /* 按钮的宽度 */
-    height: 37px;   /* 按钮的高度，与宽度相同，形成圆形 */
+    background-color: #f0f0f0;
 }

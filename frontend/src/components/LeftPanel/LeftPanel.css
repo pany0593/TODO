@@ -1,0 +1,22 @@
+/* LeftPanel.css */
+
+/* 左侧面板的布局 */
+.left-panel {
+    display: flex;
+    flex-direction: column;  /* 垂直布局 */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 按钮部分的样式 */
+.button-section {
+    margin-top: 15px; /* 给按钮部分添加顶部间距 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Calendar 部分，暂时不显示 */
+.calendar-section {
+    display: none;  /* 隐藏日历部分 */
+}

@@ -1,5 +1,6 @@
 import ButtonComponent from './ButtonComponent/ButtonComponent.jsx';
 import CalendarMonth from './CalendarMonth/CalendarMonth.jsx';
+import './LeftPanel.css';
 
 function LeftPanel() {
     return (

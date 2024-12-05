@@ -1,6 +1,8 @@
+import "./ButtonComponent.css"
+
 function ButtonComponent() {
     return (
-        <button style={{ padding: '10px', width: '100%' }}>Click Me</button>
+        <button className="left-button">Add Memo</button>
     );
 }
 
