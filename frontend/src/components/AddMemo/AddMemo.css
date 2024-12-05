@@ -1,0 +1,98 @@
+/* form-container: 整体组件样式 */
+.form-container {
+    position: fixed; /* 使组件固定在页面 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 完全居中 */
+    background-color: #ffffff; /* 背景色 */
+    padding: 20px 30px; /* 内边距 */
+    border-radius: 10px; /* 圆角 */
+    border: 2px solid #ccc; /* 边框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    width: 500px; /* 扩大整体宽度 */
+    height: auto; /* 自适应高度 */
+    z-index: 9999; /* 保证在最上层 */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* form-group: 每个表单元素的容器 */
+.form-group {
+    margin-bottom: 15px; /* 每个输入框和标签之间的间距 */
+    width: 100%; /* 确保每个表单元素容器占满宽度 */
+}
+
+/* label: 标签样式 */
+.form-group label {
+    font-size: 16px; /* 标签字体大小 */
+    margin-bottom: 5px; /* 标签和输入框之间的间距 */
+    display: block; /* 使标签占据一整行 */
+    width: 100%; /* 使标签宽度与输入框一致 */
+}
+
+/* input 和 textarea 样式 */
+.form-group input,
+.form-group textarea {
+    width: 100%; /* 让输入框和文本框占满容器宽度 */
+    padding: 8px; /* 输入框和文本框的内边距 */
+    border: 1px solid #ccc; /* 边框 */
+    border-radius: 5px; /* 圆角 */
+    font-size: 14px; /* 字体大小 */
+}
+
+/* textarea 样式 - 为了适应多行文本 */
+.form-group textarea {
+    height: 100px; /* 为textarea设置固定高度 */
+}
+
+/* 提交按钮样式 */
+button[type="submit"] {
+    padding: 10px 20px; /* 按钮的内边距 */
+    background-color: #947ece; /* 按钮的背景色 */
+    color: white; /* 字体颜色 */
+    border: none; /* 移除边框 */
+    border-radius: 5px; /* 圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为指针 */
+    font-size: 16px; /* 字体大小 */
+}
+
+/* 鼠标悬停时按钮的背景色 */
+button[type="submit"]:hover {
+    background-color: #6750a4; /* 鼠标悬停时按钮的背景色 */
+}
+
+/* 右上角的关闭按钮样式 */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336; /* 关闭按钮的背景色 */
+    color: white; /* 关闭按钮的字体颜色 */
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 16px; /* 调整字体大小与按钮大小匹配 */
+    display: flex; /* 使用 flexbox 来居中文本 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #d32f2f; /* 鼠标悬停时按钮的背景色 */
+}
+
+/* 将底部按钮容器居中 */
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 使按钮居中 */
+}
+
+/* 提交按钮的容器，确保它处于底部 */
+.form-container form button[type="submit"] {
+    align-self: center; /* 确保按钮居中 */
+    margin-top: 20px; /* 添加上边距，确保表单输入框与按钮之间有空间 */
+}
