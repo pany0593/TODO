@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; // 导入 Link 组件
 import "./User.css";
 
 function User() {
@@ -86,6 +87,11 @@ function User() {
 
                     <button type="submit">保存修改</button>
                 </form>
+            </div>
+            <div>
+                <Link to="/login">
+                    <button type="button" className="logout-button-container">退出账户</button>
+                </Link>
             </div>
         </div>
     );
