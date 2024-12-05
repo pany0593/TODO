@@ -1,0 +1,88 @@
+.user-page {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    margin-top: 30px;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-top: 80px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 调整密码框样式 */
+.password-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 30px 30px; /* 和 form-container 的 padding 对齐 */
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    width: 100%; /* 保持与 form-container 一致宽度 */
+    box-sizing: border-box; /* 确保内边距和边框包含在宽度内 */
+}
+
+.password-container h2 {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+}
+
+/* 调整内部表单组的宽度 */
+.password-container .form-group {
+    width: 90%; /* 略窄于父容器 */
+    margin: 0 auto; /* 居中对齐 */
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
