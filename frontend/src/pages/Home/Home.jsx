@@ -14,7 +14,11 @@ function Home() {
     const [courses, setCourses] = useState([]);  // 用于存储课程数据
     const [loading, setLoading] = useState(true);  // 用于显示加载状态
     const [events, setEvents] = useState([]); // 用于存储事件
+    const [selectedCourse, setSelectedCourse] = useState(null); // To store selected course
 
+    const handleSelectedCourse = (course) => {
+        setSelectedCourse(course); // Set selected course when clicked
+    };
     const fetchCourses = async () => {
         try {
             const response = await get_course(); // 调用 API 获取课程数据
@@ -74,11 +78,12 @@ function Home() {
         <div className="main-content">
             {isFormVisible && <AddMemo setFormVisible={setFormVisible} fetchMemos={fetchMemos} courses={courses}/>}
             {isCourseVisible && <AddCourse setCourseVisible={setCourseVisible} fetchCourses={fetchCourses}/>}
-            {isSetCourseVisible && <SetCourse setSetCourseVisible={setSetCourseVisible}/>}
+            {isSetCourseVisible && <SetCourse setSetCourseVisible={setSetCourseVisible} selectedCourse={selectedCourse}/>}
             <LeftPanel
                 setFormVisible={setFormVisible}
                 setCourseVisible={setCourseVisible}
                 setSetCourseVisible={setSetCourseVisible}
+                setSelectedCourse={handleSelectedCourse}
                 courses={courses}
                 setLoading={loading}
                 fetchCourses={fetchCourses}
