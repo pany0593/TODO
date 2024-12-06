@@ -152,11 +152,11 @@ def add_memo():
     添加备忘录
     """
     data = request.json
-    if not data or not all(key in data for key in ['course_name', 'status', 'deadline', 'description']):
+    if not data or not all(key in data for key in ['course', 'start', 'end', 'title', 'description']):
         return jsonify({'error': 'Missing required fields'}), 400
     user_id = get_jwt_identity()
     try:
-        memo_id = service.add_memo(user_id, data['course_name'], data['status'], data['deadline'], data['description'])
+        memo_id = service.add_memo(user_id, data['course'], data['start'], data['end'], data['title'], data['description'])
         return jsonify({'memo_id': memo_id}), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500

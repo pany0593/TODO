@@ -161,19 +161,16 @@ def update_memo(user_id, task_id, course_name, status, deadline, description):
         raise ValueError('Failed to update memo')
 
 
-def add_memo(user_id, course_name, status, deadline, description):
+def add_memo(user_id, course_name, start, end, title, description):
     """
     添加备忘录
     """
     # 查找课程id
     course_id = mapper.get_course_id(course_name)
-    # 检查备忘录是否重复
-    if mapper.check_memo_exists(course_id, deadline, description):
-        raise ValueError('memo already exists')
     # 生成备忘录id
     memo_id = f"MEMO{generator.generate_id()}"
     # 保存课程信息
-    result = mapper.insert_new_memo(memo_id, user_id, course_id, status, deadline, description)
+    result = mapper.insert_new_memo(memo_id, user_id, course_id, start, end, title, description)
     if result:
         return result
     else:

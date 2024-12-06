@@ -19,10 +19,11 @@ CREATE TABLE course (
 -- 创建任务表
 CREATE TABLE task (
     task_id VARCHAR(50) PRIMARY KEY,        -- 任务ID，主键
-    user_id VARCHAR(50) NOT NULL,                          -- 用户ID，外键
-    course_id VARCHAR(50) NOT NULL,                        -- 课程ID，外键
-    status INT NOT NULL,                          -- 任务状态：待完成0/已完成1
-    deadline DATE NOT NULL,                        -- 截止日期
+    user_id VARCHAR(50) NOT NULL,                -- 用户ID，外键
+    course_id VARCHAR(50),                        -- 课程ID
+    start_time VARCHAR(20) NOT NULL,
+    end_time VARCHAR(20) NOT NULL,
+    title VARCHAR(100) NOT NULL,               -- 任务标题
     description TEXT NOT NULL,                     -- 任务描述
-    FOREIGN KEY (course_id) REFERENCES Course(course_id) ON DELETE CASCADE -- 关联课程表
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE -- 关联用户表
 );

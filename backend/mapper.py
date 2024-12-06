@@ -148,9 +148,9 @@ def get_course_id(course_name):
     return result[0]
 
 
-def insert_new_memo(memo_id, user_id, course_id, status, deadline, description):
-    sql = "INSERT INTO task (task_id, user_id, course_id, status, deadline, description) VALUES (%s, %s, %s, %s, %s, %s) RETURNING task_id;"
-    params = (memo_id, user_id, course_id, status, deadline, description)
+def insert_new_memo(memo_id, user_id, course_id, start, end, title, description):
+    sql = "INSERT INTO task (task_id, user_id, course_id, start_time, end_time, title, description) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING task_id;"
+    params = (memo_id, user_id, course_id, start, end, title, description)
     result = execute_query(sql, params, fetch_one=True, commit=True)
     logger.info(
         f"Inserted new memo<{description}> with user<{user_id}>. Task ID: {result[0] if result else 'Unknown'}")
