@@ -10,6 +10,7 @@ import { createEventsServicePlugin } from '@schedule-x/events-service';
 import '@schedule-x/theme-default/dist/index.css';
 import { useEffect, useState } from "react";
 import { createEventModalPlugin } from '@schedule-x/event-modal';
+import {delete_memo} from "../../api/memo.jsx";
 
 function CalendarApp({ fetchMemos, events }) {
     // 创建事件服务插件
@@ -18,7 +19,21 @@ function CalendarApp({ fetchMemos, events }) {
     const calendar = useCalendarApp({
         views: [createViewDay(), createViewWeek(), createViewMonthGrid(), createViewMonthAgenda()],
         events: [], // 初始为空，后续会更新
-        plugins: [eventsService, eventModal]
+        plugins: [eventsService, eventModal],
+        callbacks:{
+            onDoubleClickEvent: async (calendarEvent) => {
+                eventsService.remove(calendarEvent.id);
+                try {
+                    const response = await delete_memo(calendarEvent.id);
+                    console.log(response);
+                } catch (error) {
+                    console.error('Failed to fetch memos:', error);
+                }
+            },
+            // onClickDateTime:(dateTime) => {
+            //
+            // }
+        }
     });
 
     useEffect(() => {
