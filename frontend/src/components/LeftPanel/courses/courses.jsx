@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { get_course } from "../../../api/course";  // 假设 get_courses 函数从 api 中导入
 import "./courses.css"
 
-function Courses() {
+function Courses( {onClick} ) {
     const [courses, setCourses] = useState([]);  // 用于存储课程数据
     const [loading, setLoading] = useState(true);  // 用于显示加载状态
 
@@ -35,6 +35,7 @@ function Courses() {
 
     return (
         <div className="courses-container">
+            <button className="add-button" onClick={onClick}>+</button>
             <div className="courses-header">所有课程</div>
             {courses.map(course => (
                 <div key={course.course_id} className="course-item">
