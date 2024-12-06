@@ -185,7 +185,7 @@ def add_course(userid, course_name, teacher_name):
     添加课程
     """
     # 检查课程名是否重复
-    if mapper.check_coursename_exists(course_name):
+    if mapper.check_coursename_exists(course_name, userid):
         raise ValueError('course name already exists')
     # 生成课程id
     course_id = f"COURSE{generator.generate_id()}"

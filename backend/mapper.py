@@ -175,9 +175,9 @@ def insert_new_course(course_id, userid, course_name, teacher_name):
     return result[0] if result else None
 
 
-def check_coursename_exists(course_name):
-    sql = "SELECT 1 FROM course WHERE course_name = %s;"
-    params = (course_name,)
+def check_coursename_exists(user_id, course_name):
+    sql = "SELECT 1 FROM course WHERE course_name = %s and user_id = %s;"
+    params = (course_name,user_id)
     result = execute_query(sql, params, fetch_one=True)
     logger.info(f"Checked existence of course_name<{course_name}>: {'Exists' if result else 'Not exists'}")
     return result is not None
