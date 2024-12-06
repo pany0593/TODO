@@ -84,7 +84,7 @@ def get_memo():
     user_id = get_jwt_identity()
     try:
         memos = service.get_memos(user_id)
-        return jsonify({'memos': memos}), 200
+        return jsonify({'data': memos}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

@@ -76,7 +76,22 @@ def get_memos(user_id):
     # 查询用户的所有备忘录
     memos = mapper.get_memos_by_user(user_id)
     if memos is not None:
-        return memos
+        # 将查询结果封装为 JSON 格式
+        memos_json = []
+        for memo in memos:
+            # 假设每个备忘录的数据结构是一个列表，如：
+            # [task_id, course_id, status, deadline, description]
+            memo_json = {
+                "task_id": memo[0],
+                "course_id": memo[1],
+                "course_name": memo[2],
+                "status": memo[3],
+                "deadline": memo[4],  # 可以根据需求进行格式化
+                "description": memo[5]
+            }
+            memos_json.append(memo_json)
+
+        return {"memos": memos_json}
     else:
         raise ValueError('Failed to fetch memos')
 

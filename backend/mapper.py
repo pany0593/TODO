@@ -91,17 +91,19 @@ def update_course(course_id, user_id, course_name, teacher_name):
 
 def get_memos_by_user(user_id):
     """
-    获取用户的所有备忘录
+    获取用户的所有备忘录，并包含课程名称
     """
     sql = """
-        SELECT task_id, course_id, status, deadline, description 
-        FROM task 
-        WHERE user_id = %s;
+        SELECT t.task_id, t.course_id, c.course_name, t.status, t.deadline, t.description 
+        FROM task t
+        JOIN course c ON t.course_id = c.course_id
+        WHERE t.user_id = %s;
     """
     params = (user_id,)
     result = execute_query(sql, params, fetch_all=True)
     logger.info(f"Fetched memos for user<{user_id}>: {len(result) if result else 0} memos found")
     return result
+
 
 
 def delete_memo(task_id, user_id):
