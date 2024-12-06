@@ -51,7 +51,7 @@ def get_courses():
     user_id = get_jwt_identity()
     try:
         courses = service.get_courses(user_id)
-        return jsonify({'courses': courses}), 200
+        return jsonify({'data': courses}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

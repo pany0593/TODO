@@ -52,8 +52,20 @@ def get_courses(user_id):
     """
     # 查询用户的所有课程
     courses = mapper.get_courses_by_user(user_id)
+
     if courses is not None:
-        return courses
+        # 将查询结果封装为 JSON 格式
+        courses_json = []
+        for course in courses:
+            # 假设每个课程的数据结构是一个列表，如：[course_id, course_name, teacher_name]
+            course_json = {
+                "course_id": course[0],  # 课程ID
+                "course_name": course[1],  # 课程名称
+                "teacher_name": course[2]  # 教师姓名
+            }
+            courses_json.append(course_json)
+
+        return courses_json
     else:
         raise ValueError('Failed to fetch courses')
 
