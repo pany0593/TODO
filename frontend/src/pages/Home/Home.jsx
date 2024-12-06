@@ -52,9 +52,9 @@ function Home() {
                 // 格式化备忘录为日历事件
                 const formattedEvents = memos.map((memo) => ({
                     id: memo.task_id, // 使用 task_id 作为事件的唯一标识
-                    title: memo.course_name, // 使用 course_name 作为事件标题
-                    start: formatDate(memo.deadline), // 格式化为 YYYY-MM-DD HH:mm
-                    end: formatDate(memo.deadline), // 格式化为 YYYY-MM-DD HH:mm
+                    title: memo.title, // 使用 course_name 作为事件标题
+                    start: formatDate(memo.start), // 格式化为 YYYY-MM-DD HH:mm
+                    end: formatDate(memo.end), // 格式化为 YYYY-MM-DD HH:mm
                 }));
                 // 更新事件状态
                 setEvents(formattedEvents);
