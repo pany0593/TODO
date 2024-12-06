@@ -13,3 +13,11 @@ export const add_course = async (course_name, teacher_name) => {
 export const get_course = async () => {
     return await apiRequest('http://127.0.0.1:5000/api/courses', 'get', null, true);
 };
+export const update_course = async (course_id, course_name, teacher_name) => {
+    const data = {
+        course_id: course_id,
+        course_name: course_name,
+        teacher_name: teacher_name
+    };
+    return await apiRequest('http://127.0.0.1:5000/api/update_course', 'post', data, true);
+};

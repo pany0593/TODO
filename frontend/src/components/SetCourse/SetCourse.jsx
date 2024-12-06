@@ -1,6 +1,7 @@
 import{ useState } from "react";
+import {update_course} from "../../api/course.jsx";
 
-function SetCourse({ setSetCourseVisible, selectedCourse}) {
+function SetCourse({ setSetCourseVisible, selectedCourse, fetchCourses}) {
     const [formData, setFormData] = useState({
         course_name: selectedCourse ? selectedCourse.course_name : "",
         teacher_name: selectedCourse ? selectedCourse.teacher_name : "",
@@ -20,17 +21,23 @@ function SetCourse({ setSetCourseVisible, selectedCourse}) {
     };
     // 处理表单提交
     const handleSubmit = async (e) => {
-        // e.preventDefault();
-        // try {
-        //     setCourseVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
-        //     // 调用 login 函数并传递用户名和密码
-        //     const response = await add_course(formData.course_name, formData.teacher_name);
-        //     console.log('添加成功:', response);
-        //     fetchCourses(); // 重新获取课程列表
-        // } catch (error) {
-        //     console.error('添加失败:', error);
-        // }
+        e.preventDefault();
+        try {
+            setSetCourseVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
+            // 调用 login 函数并传递用户名和密码
+            const response = await update_course(selectedCourse.course_id,formData.course_name, formData.teacher_name);
+            console.log('修改成功:', response);
+            fetchCourses(); // 重新获取课程列表
+        } catch (error) {
+            console.error('修改失败:', error);
+        }
     };
+
+    const handleDelete = ()=>{
+
+    }
+
+
 
     return (
         <div className="form-container">
@@ -58,7 +65,8 @@ function SetCourse({ setSetCourseVisible, selectedCourse}) {
                     />
                 </div>
 
-                <button type="submit">添加课程</button>
+                <button type="submit">修改课程</button>
+                <button type="submit" onClick={handleDelete}>删除课程</button>
             </form>
         </div>
     );

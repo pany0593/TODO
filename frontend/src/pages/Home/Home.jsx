@@ -4,7 +4,7 @@ import CalendarWeek from '../../components/CalendarWeek/CalendarWeek.jsx';
 import AddMemo from "../../components/AddMemo/AddMemo.jsx";
 import AddCourse from "../../components/AddCourse/AddCourse.jsx";
 import SetCourse from "../../components/SetCourse/SetCourse.jsx";
-import {get_course} from "../../api/course.js";
+import {get_course} from "../../api/course.jsx";
 import {get_memos} from "../../api/memo.jsx";
 
 function Home() {
@@ -78,7 +78,7 @@ function Home() {
         <div className="main-content">
             {isFormVisible && <AddMemo setFormVisible={setFormVisible} fetchMemos={fetchMemos} courses={courses}/>}
             {isCourseVisible && <AddCourse setCourseVisible={setCourseVisible} fetchCourses={fetchCourses}/>}
-            {isSetCourseVisible && <SetCourse setSetCourseVisible={setSetCourseVisible} selectedCourse={selectedCourse}/>}
+            {isSetCourseVisible && <SetCourse setSetCourseVisible={setSetCourseVisible} selectedCourse={selectedCourse} fetchCourses={fetchCourses}/>}
             <LeftPanel
                 setFormVisible={setFormVisible}
                 setCourseVisible={setCourseVisible}

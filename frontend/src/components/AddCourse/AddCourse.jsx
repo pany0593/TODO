@@ -1,5 +1,5 @@
 import{ useState } from "react";
-import {add_course} from "../../api/course.js";
+import {add_course} from "../../api/course.jsx";
 
 function AddCourse({ setCourseVisible, fetchCourses }) {
     const [formData, setFormData] = useState({
