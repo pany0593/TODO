@@ -1,9 +1,11 @@
 import { useState } from "react";
 import './AddMemo.css';
+import {add_memo} from "../../api/memo.jsx";
 
 
 function AddMemo({ setFormVisible }) {
     const [formData, setFormData] = useState({
+        course: "",
         start: "",
         end: "",
         title: "",
@@ -23,16 +25,35 @@ function AddMemo({ setFormVisible }) {
         setFormVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
     };
     // 处理表单提交
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("Form submitted:", formData);
-        // 你可以在这里进行表单数据的处理或提交请求
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            // 调用 login 函数并传递用户名和密码
+            const response = await add_memo(formData.course, formData.start, formData.end, formData.title, formData.description);
+            console.log('添加成功:', response);
+            // 登录成功后，保存 token 到 localStorage
+            localStorage.setItem('memo_id', response.memo_id);
+            setFormVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
+        } catch (error) {
+            console.error('添加失败:', error);
+        }
     };
 
     return (
         <div className="form-container">
             <button className="close-button" onClick={handleClose}>×</button>
             <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="course">course name:</label>
+                    <input
+                        type="text"
+                        id="course"
+                        name="course"
+                        value={formData.course}
+                        onChange={handleChange}
+                    />
+                </div>
+
                 <div className="form-group">
                     <label htmlFor="start">Start Time:</label>
                     <input
