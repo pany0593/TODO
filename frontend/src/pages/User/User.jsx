@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // 导入 Link 组件
+import { Link, useNavigate } from "react-router-dom"; // 导入 useNavigate
 import "./User.css";
 
 function User() {
@@ -9,6 +9,8 @@ function User() {
         oldpassword: "",
         newpassword: ""
     });
+
+    const navigate = useNavigate(); // 获取 navigate 函数用于跳转
 
     // 处理表单输入变化
     const handleChange = (event) => {
@@ -24,6 +26,15 @@ function User() {
         event.preventDefault();
         console.log("表单提交的数据:", formData);
         // 你可以在这里发送数据到服务器
+    };
+
+    // 处理退出账户
+    const handleLogout = () => {
+        // 清除 localStorage 中的用户数据（比如 token）
+        localStorage.removeItem('token');
+        console.log("用户已退出账户");
+        // 跳转到登录页面
+        navigate('/login');
     };
 
     return (
@@ -88,10 +99,16 @@ function User() {
                     <button type="submit">保存修改</button>
                 </form>
             </div>
+
+            {/* 退出账户按钮 */}
             <div>
-                <Link to="/login">
-                    <button type="button" className="logout-button-container">退出账户</button>
-                </Link>
+                <button
+                    type="button"
+                    className="logout-button-container"
+                    onClick={handleLogout} // 调用 handleLogout 函数
+                >
+                    退出账户
+                </button>
             </div>
         </div>
     );
