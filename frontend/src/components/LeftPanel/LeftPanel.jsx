@@ -3,7 +3,7 @@ import CalendarMonth from './CalendarMonth/CalendarMonth.jsx';
 import Courses from "./courses/courses.jsx";
 import './LeftPanel.css';
 
-function LeftPanel({ setFormVisible, setCourseVisible }) {
+function LeftPanel({ setFormVisible, setCourseVisible, courses, fetchCourses, setLoading }) {
     return (
         <div className="left-panel">
             <div className="button-section">
@@ -13,7 +13,12 @@ function LeftPanel({ setFormVisible, setCourseVisible }) {
                 <CalendarMonth />
             </div>
             <div className="courses-section">
-                <Courses onClick={() => setCourseVisible(true)}/>
+                <Courses
+                    onClick={() => setCourseVisible(true)}
+                    courses={courses}
+                    fetchCourses={fetchCourses}
+                    setLoading={setLoading}
+                />
             </div>
         </div>
     );

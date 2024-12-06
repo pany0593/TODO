@@ -1,7 +1,7 @@
 import{ useState } from "react";
 import {add_course} from "../../api/course.js";
 
-function AddCourse({ setCourseVisible }) {
+function AddCourse({ setCourseVisible, fetchCourses }) {
     const [formData, setFormData] = useState({
         course_name: "",
         teacher_name:"",
@@ -23,10 +23,11 @@ function AddCourse({ setCourseVisible }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setCourseVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
             // 调用 login 函数并传递用户名和密码
             const response = await add_course(formData.course_name, formData.teacher_name);
             console.log('添加成功:', response);
-            setCourseVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
+            fetchCourses(); // 重新获取课程列表
         } catch (error) {
             console.error('添加失败:', error);
         }
