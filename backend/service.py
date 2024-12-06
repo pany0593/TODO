@@ -115,10 +115,11 @@ def get_memos(user_id):
             memo_json = {
                 "task_id": memo[0],
                 "course_id": memo[1],
-                "course_name": memo[2],
-                "status": memo[3],
-                "deadline": memo[4],  # 可以根据需求进行格式化
-                "description": memo[5]
+                "course": memo[2],
+                "start": memo[3],
+                "end": memo[4],
+                "title": memo[5],  # 可以根据需求进行格式化
+                "description": memo[6]
             }
             memos_json.append(memo_json)
 

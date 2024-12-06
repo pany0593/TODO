@@ -102,7 +102,7 @@ def get_memos_by_user(user_id):
     获取用户的所有备忘录，并包含课程名称
     """
     sql = """
-        SELECT t.task_id, t.course_id, c.course_name, t.status, t.deadline, t.description 
+        SELECT t.task_id, t.course_id, c.course_name, t.start_time, t.end_time, t.title, t.description 
         FROM task t
         JOIN course c ON t.course_id = c.course_id
         WHERE t.user_id = %s;
