@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./courses.css"
 
-function Courses( {onClick, courses, fetchCourses, setLoading} ) {
+function Courses( {onClick, onCourseClick, courses, fetchCourses, setLoading} ) {
 
 
 
@@ -19,7 +19,7 @@ function Courses( {onClick, courses, fetchCourses, setLoading} ) {
             <button className="add-button" onClick={onClick}>+</button>
             <div className="courses-header">所有课程</div>
             {courses.map(course => (
-                <div key={course.course_id} className="course-item">
+                <div key={course.course_id} className="course-item"  onClick={onCourseClick}>
                     <div className="course-name">{course.course_name}</div>
                 </div>
             ))}

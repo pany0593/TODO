@@ -3,12 +3,14 @@ import LeftPanel from '../../components/LeftPanel/LeftPanel.jsx';
 import CalendarWeek from '../../components/CalendarWeek/CalendarWeek.jsx';
 import AddMemo from "../../components/AddMemo/AddMemo.jsx";
 import AddCourse from "../../components/AddCourse/AddCourse.jsx";
+import SetCourse from "../../components/SetCourse/SetCourse.jsx";
 import {get_course} from "../../api/course.js";
 import {get_memos} from "../../api/memo.jsx";
 
 function Home() {
     const [isFormVisible, setFormVisible] = useState(false);
     const [isCourseVisible, setCourseVisible] = useState(false);
+    const [isSetCourseVisible, setSetCourseVisible] = useState(false);
     const [courses, setCourses] = useState([]);  // 用于存储课程数据
     const [loading, setLoading] = useState(true);  // 用于显示加载状态
     const [events, setEvents] = useState([]); // 用于存储事件
@@ -67,13 +69,16 @@ function Home() {
         }
     };
 
+
     return (
         <div className="main-content">
             {isFormVisible && <AddMemo setFormVisible={setFormVisible} fetchMemos={fetchMemos} courses={courses}/>}
             {isCourseVisible && <AddCourse setCourseVisible={setCourseVisible} fetchCourses={fetchCourses}/>}
+            {isSetCourseVisible && <SetCourse setSetCourseVisible={setSetCourseVisible}/>}
             <LeftPanel
                 setFormVisible={setFormVisible}
                 setCourseVisible={setCourseVisible}
+                setSetCourseVisible={setSetCourseVisible}
                 courses={courses}
                 setLoading={loading}
                 fetchCourses={fetchCourses}
