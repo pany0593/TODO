@@ -56,7 +56,6 @@ function Home() {
                     start: formatDate(memo.deadline), // 格式化为 YYYY-MM-DD HH:mm
                     end: formatDate(memo.deadline), // 格式化为 YYYY-MM-DD HH:mm
                 }));
-
                 // 更新事件状态
                 setEvents(formattedEvents);
             } else {
@@ -69,7 +68,7 @@ function Home() {
 
     return (
         <div className="main-content">
-            {isFormVisible && <AddMemo setFormVisible={setFormVisible} fetchMemos={fetchMemos}/>}
+            {isFormVisible && <AddMemo setFormVisible={setFormVisible} fetchMemos={fetchMemos} courses={courses}/>}
             {isCourseVisible && <AddCourse setCourseVisible={setCourseVisible} fetchCourses={fetchCourses}/>}
             <LeftPanel
                 setFormVisible={setFormVisible}

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import './AddMemo.css';
-import {add_memo} from "../../api/memo.jsx";
+import { add_memo } from "../../api/memo.jsx";
 
-
-function AddMemo({ setFormVisible, fetchMemos }) {
+function AddMemo({ setFormVisible, fetchMemos, courses }) {
     const [formData, setFormData] = useState({
         course: "",
         start: "",
@@ -20,20 +19,21 @@ function AddMemo({ setFormVisible, fetchMemos }) {
             [name]: value
         });
     };
+
     // 关闭表单的逻辑
     const handleClose = () => {
         setFormVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
     };
+
     // 处理表单提交
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             setFormVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
-            // 调用 login 函数并传递用户名和密码
+            // 调用 add_memo 函数并传递课程相关数据
             const response = await add_memo(formData.course, formData.start, formData.end, formData.title, formData.description);
             console.log('添加成功:', response);
-            // 登录成功后，保存 token 到 localStorage
-            localStorage.setItem('memo_id', response.memo_id);
+            // 提交成功后调用 fetchMemos 刷新 memo 列表
             fetchMemos();
         } catch (error) {
             console.error('添加失败:', error);
@@ -45,14 +45,20 @@ function AddMemo({ setFormVisible, fetchMemos }) {
             <button className="close-button" onClick={handleClose}>×</button>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="course">course name:</label>
-                    <input
-                        type="text"
+                    <label htmlFor="course">Course:</label>
+                    <select
                         id="course"
                         name="course"
                         value={formData.course}
                         onChange={handleChange}
-                    />
+                    >
+                        <option value="">NULL</option> {/* 提供空选项 */}
+                        {courses && courses.map(course => (
+                            <option key={course.course_id} value={course.course_name}>
+                                {course.course_name}
+                            </option>
+                        ))}
+                    </select>
                 </div>
 
                 <div className="form-group">
