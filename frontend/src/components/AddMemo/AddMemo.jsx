@@ -3,7 +3,7 @@ import './AddMemo.css';
 import {add_memo} from "../../api/memo.jsx";
 
 
-function AddMemo({ setFormVisible }) {
+function AddMemo({ setFormVisible, fetchMemos }) {
     const [formData, setFormData] = useState({
         course: "",
         start: "",
@@ -28,12 +28,13 @@ function AddMemo({ setFormVisible }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setFormVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
             // 调用 login 函数并传递用户名和密码
             const response = await add_memo(formData.course, formData.start, formData.end, formData.title, formData.description);
             console.log('添加成功:', response);
             // 登录成功后，保存 token 到 localStorage
             localStorage.setItem('memo_id', response.memo_id);
-            setFormVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
+            fetchMemos();
         } catch (error) {
             console.error('添加失败:', error);
         }
