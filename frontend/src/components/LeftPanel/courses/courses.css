@@ -1,0 +1,76 @@
+/* courses-container: 整体课程列表容器样式 */
+.courses-container {
+    position: relative; /* 使伪元素相对于容器定位 */
+    background-color: #eaddff; /* 背景色 */
+    padding: 10px 10px; /* 内边距 */
+    border-radius: 10px; /* 圆角 */
+    width: 90%; /* 固定宽度 */
+    max-height: 30%; /* 最大高度 */
+    overflow-y: auto; /* 当内容超出时显示滚动条 */
+    z-index: 9999; /* 保证在最上层 */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* 添加左边深色块 */
+.courses-container::before {
+    content: ''; /* 伪元素内容为空 */
+    position: absolute; /* 相对于 .courses-container 定位 */
+    top: 0;
+    left: 0;
+    width: 5px; /* 深色块的宽度 */
+    height: 100%; /* 深色块的高度为容器的高度 */
+    background-color: #6750a4; /* 深色块的颜色 */
+    border-top-left-radius: 10px; /* 圆角 */
+    border-bottom-left-radius: 10px; /* 圆角 */
+}
+
+/* course-item: 每个课程项的容器 */
+.course-item {
+    display: flex;
+    justify-content: space-between; /* 左右对齐课程名称和教师名称 */
+    margin-bottom: 10px; /* 每个课程项之间的间距 */
+    background-color: #eaddff; /* 每个课程项的背景色 */
+    border-bottom: 1px solid #21005e;
+    transition: background-color 0.3s; /* 鼠标悬停时平滑过渡 */
+    width: 100%; /* 使每个课程项的宽度占满整个容器 */
+    padding: 6px; /* 为课程项添加内边距，使其与容器边缘保持一定间距 */
+}
+
+/* 鼠标悬停时改变背景色 */
+.course-item:hover {
+    background-color: #ccb8ec; /* 鼠标悬停时改变背景色 */
+}
+
+/* course-name 和 teacher-name 样式 */
+.course-item .course-name,
+.course-item .teacher-name {
+    color: #21005e;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* courses-header: 课程列表标题样式 */
+.courses-header {
+    margin-top: 5px;
+    color: #21005e;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px; /* 标题和课程列表之间的间距 */
+    text-align: left; /* 标题居中 */
+}
+
+/* 课程列表的滚动条样式 */
+.courses-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.courses-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.courses-container::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
