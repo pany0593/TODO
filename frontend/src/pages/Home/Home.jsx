@@ -55,6 +55,7 @@ function Home() {
                     title: memo.title, // 使用 course_name 作为事件标题
                     start: formatDate(memo.start), // 格式化为 YYYY-MM-DD HH:mm
                     end: formatDate(memo.end), // 格式化为 YYYY-MM-DD HH:mm
+                    description: memo.description, // 使用 description 作为事件描述
                 }));
                 // 更新事件状态
                 setEvents(formattedEvents);

@@ -9,16 +9,16 @@ import { createEventsServicePlugin } from '@schedule-x/events-service';
 
 import '@schedule-x/theme-default/dist/index.css';
 import { useEffect, useState } from "react";
+import { createEventModalPlugin } from '@schedule-x/event-modal';
 
 function CalendarApp({ fetchMemos, events }) {
     // 创建事件服务插件
     const eventsService = useState(() => createEventsServicePlugin())[0];
-
-    // 创建日历应用，设置视图和插件
+    const eventModal = createEventModalPlugin();
     const calendar = useCalendarApp({
         views: [createViewDay(), createViewWeek(), createViewMonthGrid(), createViewMonthAgenda()],
         events: [], // 初始为空，后续会更新
-        plugins: [eventsService],
+        plugins: [eventsService, eventModal]
     });
 
     useEffect(() => {
