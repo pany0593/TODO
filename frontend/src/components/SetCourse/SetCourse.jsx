@@ -1,5 +1,5 @@
 import{ useState } from "react";
-import {update_course} from "../../api/course.jsx";
+import {delete_course, update_course} from "../../api/course.jsx";
 
 function SetCourse({ setSetCourseVisible, selectedCourse, fetchCourses}) {
     const [formData, setFormData] = useState({
@@ -33,9 +33,18 @@ function SetCourse({ setSetCourseVisible, selectedCourse, fetchCourses}) {
         }
     };
 
-    const handleDelete = ()=>{
-
-    }
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        try {
+            setSetCourseVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
+            // 调用 login 函数并传递用户名和密码
+            const response = await delete_course(selectedCourse.course_id);
+            console.log('删除成功:', response);
+            fetchCourses(); // 重新获取课程列表
+        } catch (error) {
+            console.error('删除失败:', error);
+        }
+    };
 
 
 
