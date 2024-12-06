@@ -32,6 +32,7 @@ function User() {
     const handleLogout = () => {
         // 清除 localStorage 中的用户数据（比如 token）
         localStorage.removeItem('token');
+        localStorage.removeItem('userid');
         console.log("用户已退出账户");
         // 跳转到登录页面
         navigate('/login');
