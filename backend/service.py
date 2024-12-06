@@ -7,6 +7,25 @@ from flask_jwt_extended import create_access_token
 generator = SnowflakeIDGenerator(data_center_id=1, machine_id=1)
 
 
+def get_user(user_id):
+    """
+    获取用户信息
+    """
+    # 查询用户信息
+    data = mapper.get_user(user_id)
+
+    if data is not None:
+        # 假设返回的用户数据结构为：[user_id, username, email]
+        user_json = {
+            "user_id": user_id,  # 用户ID
+            "username": data[0],  # 用户名
+            "email": data[1]  # 用户邮箱
+        }
+        return user_json
+    else:
+        raise ValueError('Failed to fetch user data')
+
+
 def update_user(user_id, username, old_password, new_password, email):
     # 检查新用户名是否存在
     tmp_user_id = mapper.get_user_id(username)

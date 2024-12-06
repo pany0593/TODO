@@ -6,6 +6,14 @@ from backend.utils import config
 logger = logging.getLogger(__name__)
 
 
+def get_user(user_id):
+    sql = "SELECT username, email FROM users WHERE user_id = %s;"
+    params = (user_id,)
+    result = execute_query(sql, params, fetch_one=True)
+    logger.info(f"Checked existence of user_id<{user_id}>: {'Exists' if result else 'Not exists'}")
+    return result
+
+
 def update_user(user_id, username, new_password, email):
     """
     更新课程信息
@@ -103,7 +111,6 @@ def get_memos_by_user(user_id):
     result = execute_query(sql, params, fetch_all=True)
     logger.info(f"Fetched memos for user<{user_id}>: {len(result) if result else 0} memos found")
     return result
-
 
 
 def delete_memo(task_id, user_id):
