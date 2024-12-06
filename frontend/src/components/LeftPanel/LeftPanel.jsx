@@ -1,5 +1,6 @@
 import ButtonComponent from './ButtonComponent/ButtonComponent.jsx';
 import CalendarMonth from './CalendarMonth/CalendarMonth.jsx';
+import Courses from "./courses/courses.jsx";
 import './LeftPanel.css';
 
 function LeftPanel({ setFormVisible }) {
@@ -10,6 +11,9 @@ function LeftPanel({ setFormVisible }) {
             </div>
             <div className="calendar-section">
                 <CalendarMonth />
+            </div>
+            <div className="courses-section">
+                <Courses />
             </div>
         </div>
     );
