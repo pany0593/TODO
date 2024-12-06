@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // 导入 useNavigate
+import { useNavigate } from "react-router-dom"; // 导入 useNavigate
 import "./User.css";
 
 function User() {
