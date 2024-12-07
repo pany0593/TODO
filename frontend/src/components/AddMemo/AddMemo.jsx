@@ -27,6 +27,10 @@ function AddMemo({ setFormVisible, fetchMemos, courses }) {
 
     // 处理表单提交
     const handleSubmit = async (e) => {
+        if (!formData.course || !formData.start || !formData.end || !formData.title || !formData.description) {
+            alert('所有字段都必须填写');
+            return; // 退出函数，不提交表单
+        }
         e.preventDefault();
         try {
             setFormVisible(false); // 设置父组件的状态为false，隐藏AddMemo组件
