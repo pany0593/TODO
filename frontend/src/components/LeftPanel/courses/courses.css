@@ -5,7 +5,7 @@
     padding: 10px 10px; /* 内边距 */
     border-radius: 10px; /* 圆角 */
     width: 90%; /* 固定宽度 */
-    max-height: 30%; /* 最大高度 */
+    /*max-height: 30%; !* 最大高度 *!*/
     overflow-y: auto; /* 当内容超出时显示滚动条 */
     z-index: 9999; /* 保证在最上层 */
     display: flex;

@@ -9,9 +9,6 @@ function LeftPanel({ setFormVisible, setCourseVisible, setSetCourseVisible, setS
             <div className="button-section">
                 <ButtonComponent onClick={() => setFormVisible(true)}/>
             </div>
-            <div className="calendar-section">
-                <CalendarMonth />
-            </div>
             <div className="courses-section">
                 <Courses
                     onClick={() => setCourseVisible(true)}
@@ -21,6 +18,9 @@ function LeftPanel({ setFormVisible, setCourseVisible, setSetCourseVisible, setS
                     fetchCourses={fetchCourses}
                     setLoading={setLoading}
                 />
+            </div>
+            <div className="calendar-section">
+                <CalendarMonth/>
             </div>
         </div>
     );
