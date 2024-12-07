@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // 导入 useNavigate
 import "./User.css";
+import {update_course} from "../../api/course.jsx";
+import {update_user} from "../../api/auth.jsx";
 
 function User() {
     const [formData, setFormData] = useState({
@@ -12,6 +14,18 @@ function User() {
 
     const navigate = useNavigate(); // 获取 navigate 函数用于跳转
 
+    // 使用 useEffect 从 localStorage 获取初始数据
+    useEffect(() => {
+        const storedUsername = localStorage.getItem("user_name") || "";
+        const storedEmail = localStorage.getItem("email") || "";
+        setFormData({
+            username: storedUsername,
+            email: storedEmail,
+            oldpassword: "",
+            newpassword: ""
+        });
+    }, []); // 空数组确保只在组件挂载时调用一次
+
     // 处理表单输入变化
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -22,10 +36,17 @@ function User() {
     };
 
     // 处理表单提交
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("表单提交的数据:", formData);
-        // 你可以在这里发送数据到服务器
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            // 调用 login 函数并传递用户名和密码
+            const response = await update_user(formData.username, formData.email, formData.oldpassword, formData.newpassword);
+            console.log('修改用户信息成功:', response);
+            handleLogout();
+        } catch (error) {
+            alert(`修改失败: ${error.message}`);  // 显示错误信息
+            console.error('修改失败:', error);  // 打印详细的错误对象
+        }
     };
 
     // 处理退出账户
@@ -40,12 +61,15 @@ function User() {
     return (
         <div className="user-page">
             <div className="user-header">
-                <img
-                    src="https://via.placeholder.com/150"
-                    alt="用户头像"
-                    className="user-avatar"
-                />
-                <h1>user_id</h1>
+                {/* 头像更新为 avatar.jpg */}
+                <div className="avatar-container">
+                    <img
+                        src="../../../public/default-avatar.jpg" // 更新头像路径
+                        alt="用户头像"
+                        className="user-avatar"
+                    />
+                </div>
+                <h1>{formData.username}</h1> {/* 显示用户名 */}
             </div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>

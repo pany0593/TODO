@@ -15,10 +15,7 @@
 .user-avatar {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 2px solid #ccc;
-    margin-top: 30px;
+    z-index: 0; /* 设置较低的 z-index 使图片在边框下面 */
 }
 
 .form-container {
@@ -89,7 +86,7 @@ button[type="submit"]:hover {
 
 .logout-button-container
 {
-    margin-top: 480px;
+    margin-top: 500px;
     padding: 10px 20px;
     background-color: #f44336;
     color: white;
