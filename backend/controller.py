@@ -21,21 +21,34 @@ def get_user():
         return jsonify({'error': str(e)}), 500
 
 
-@bp.route('/update_user', methods=['POST'])
+@bp.route('/update_password', methods=['POST'])
 @jwt_required()
-def update_user():
-    """
-    修改课程
-    """
+def update_password():
     data = request.json
-    if not data or not all(key in data for key in ['username', 'old_password', 'new_password', 'email']):
+    if not data or not all(key in data for key in ['old_password', 'new_password']):
         return jsonify({'error': 'Missing required fields'}), 400
     user_id = get_jwt_identity()
     try:
-        token = service.update_user(user_id, data['username'], data['old_password'], data['new_password'],
-                                    data['email'])
-        if token:
-            return jsonify({'message': 'Update user successful', 'token': token}), 200
+        result = service.update_password(user_id, data['old_password'], data['new_password'])
+        if result:
+            return jsonify({'message': 'Update user successful', 'result': result}), 200
+        else:
+            return jsonify({'error': 'Invalid params'}), 401
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@bp.route('/update_user', methods=['POST'])
+@jwt_required()
+def update_user():
+    data = request.json
+    if not data or not all(key in data for key in ['username', 'email']):
+        return jsonify({'error': 'Missing required fields'}), 400
+    user_id = get_jwt_identity()
+    try:
+        result = service.update_user(user_id, data['username'], data['email'])
+        if result:
+            return jsonify({'message': 'Update user successful', 'result': result}), 200
         else:
             return jsonify({'error': 'Invalid params'}), 401
     except Exception as e:
@@ -156,7 +169,8 @@ def add_memo():
         return jsonify({'error': 'Missing required fields'}), 400
     user_id = get_jwt_identity()
     try:
-        memo_id = service.add_memo(user_id, data['course'], data['start'], data['end'], data['title'], data['description'])
+        memo_id = service.add_memo(user_id, data['course'], data['start'], data['end'], data['title'],
+                                   data['description'])
         return jsonify({'memo_id': memo_id}), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500

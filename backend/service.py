@@ -26,24 +26,15 @@ def get_user(user_id):
         raise ValueError('Failed to fetch user data')
 
 
-def update_user(user_id, username, old_password, new_password, email):
+def update_user(user_id, username, email):
     # 检查新用户名是否存在
     tmp_user_id = mapper.get_user_id(username)
     if tmp_user_id != user_id and tmp_user_id is not None:
         raise ValueError("Username exist.")
-    # 哈希输入密码
-    hashed_password = hash_password(old_password, config['app']['secret_key'])
-    # 验证用户名和密码
-    if hashed_password == mapper.get_user_password_id(user_id):
-        # 用户验证通过，生成新密码
-        hashed_new_password = hash_password(new_password, config['app']['secret_key'])
-        # 更新用户信息
-        mapper.update_user(user_id, username, hashed_new_password, email)
-        # 生成 JWT token
-        token = create_access_token(identity=user_id)
-        return token
-    else:
-        raise ValueError("Wrong old_password.")
+    result = mapper.update_user(user_id, username, email)
+    if result is None:
+        raise ValueError("Failed to update user data")
+    return result
 
 
 def get_courses(user_id):
@@ -193,6 +184,18 @@ def add_course(userid, course_name, teacher_name):
         return result
     else:
         raise ValueError('Failed to add course')
+
+
+def update_password(user_id, old_password, new_password):
+    if old_password == new_password:
+        raise ValueError('New password cannot be the same as the old password')
+    if mapper.get_user_password_id(user_id) != hash_password(old_password, config['app']['secret_key']):
+        raise ValueError('Old password is incorrect')
+    result = mapper.update_password(user_id, hash_password(new_password, config['app']['secret_key']))
+    if result:
+        return result
+    else:
+        raise ValueError('Failed to update password')
 
 
 def register_user(username, password, email):

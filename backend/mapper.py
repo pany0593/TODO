@@ -14,12 +14,18 @@ def get_user(user_id):
     return result
 
 
-def update_user(user_id, username, new_password, email):
-    """
-    更新课程信息
-    """
-    sql = "UPDATE users SET username = %s, password = %s, email = %s WHERE user_id = %s RETURNING user_id;"
-    params = (username, new_password, email, user_id)
+def update_password(user_id, password):
+    sql = "UPDATE users SET password = %s WHERE user_id = %s RETURNING user_id;"
+    params = (password, user_id)
+    result = execute_query(sql, params, fetch_one=True, commit=True)
+    print(result)
+    logger.info(f"Updated user<{user_id}> : {'Success' if result else 'Failed'}")
+    return result[0] if result else None
+
+
+def update_user(user_id, username, email):
+    sql = "UPDATE users SET username = %s, email = %s WHERE user_id = %s RETURNING user_id;"
+    params = (username, email, user_id)
     result = execute_query(sql, params, fetch_one=True, commit=True)
     logger.info(f"Updated user<{user_id}> : {'Success' if result else 'Failed'}")
     return result[0] if result else None
@@ -177,7 +183,7 @@ def insert_new_course(course_id, userid, course_name, teacher_name):
 
 def check_coursename_exists(user_id, course_name):
     sql = "SELECT 1 FROM course WHERE course_name = %s and user_id = %s;"
-    params = (course_name,user_id)
+    params = (course_name, user_id)
     result = execute_query(sql, params, fetch_one=True)
     logger.info(f"Checked existence of course_name<{course_name}>: {'Exists' if result else 'Not exists'}")
     return result is not None
