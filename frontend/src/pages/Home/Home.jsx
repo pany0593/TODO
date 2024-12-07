@@ -87,6 +87,8 @@ function Home() {
                 courses={courses}
                 setLoading={loading}
                 fetchCourses={fetchCourses}
+                fetchMemos={fetchMemos}
+                events={events}
             />
             <div className="right-panel">
                 <CalendarWeek fetchMemos={fetchMemos} events={events}/>
