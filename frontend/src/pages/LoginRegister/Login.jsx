@@ -28,7 +28,11 @@ function Login() {
             localStorage.setItem('user_id',response.data.user_id);
             localStorage.setItem('user_name',response.data.username);
         } catch (error) {
-            console.error('登录失败:', error);
+            if(error.response.status === 500){
+                alert('用户名或密码错误');
+            }
+            else
+                console.error('登录失败:', error);
         }
     };
 
