@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";;
 
 function CalendarMonth() {
     const calendar = useCalendarApp({
-        views: [createViewMonthGrid()]
+        views: [createViewMonthAgenda()],
     });
 
     return (

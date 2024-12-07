@@ -20,11 +20,10 @@
     margin-top: 40px;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-grow: 0;          /* 去除自动伸展 */
     height: 200px;         /* 设置固定高度，例如 400px，可以根据实际需求调整 */
     overflow-y: auto;      /* 当课程内容超出时，显示滚动条 */
-    width: 110%;
+    width: 100%;
 }
 .calendar-section {
     width: 100%;
