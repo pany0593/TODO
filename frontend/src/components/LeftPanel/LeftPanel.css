@@ -10,14 +10,14 @@
 
 /* 按钮部分的样式 */
 .button-section {
-    margin-top: 15px; /* 给按钮部分添加顶部间距 */
+    margin-top: 10px; /* 给按钮部分添加顶部间距 */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .courses-section {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     flex-grow: 0;          /* 去除自动伸展 */
@@ -27,5 +27,5 @@
 }
 .calendar-section {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
 }
