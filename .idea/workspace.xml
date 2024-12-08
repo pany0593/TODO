@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e24b2843-4c08-4de8-8fa8-8ace3821c004" name="更改" comment="update default avatar" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2pMtfrBQF6Fyn3icTUWw4C6vt9j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.TODO.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.backend.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mapper.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/桌面/TODO/backend/app.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="e24b2843-4c08-4de8-8fa8-8ace3821c004" name="更改" comment="" />
+      <created>1732587878604</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732587878604</updated>
+      <workItem from="1732587879692" duration="9088000" />
+      <workItem from="1732616646838" duration="912000" />
+      <workItem from="1732687191969" duration="5946000" />
+      <workItem from="1732712696796" duration="328000" />
+      <workItem from="1732965347005" duration="17665000" />
+      <workItem from="1733296454298" duration="15000" />
+      <workItem from="1733296952453" duration="12000" />
+      <workItem from="1733296979629" duration="159000" />
+      <workItem from="1733400971486" duration="664000" />
+      <workItem from="1733414386413" duration="598000" />
+      <workItem from="1733453509525" duration="8384000" />
+      <workItem from="1733486280687" duration="11404000" />
+      <workItem from="1733551149812" duration="1193000" />
+      <workItem from="1733583792842" duration="670000" />
+      <workItem from="1733588061616" duration="831000" />
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1732623513010</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732623513010</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1733205878763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733205878763</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor: mapper.py">
+      <option name="closed" value="true" />
+      <created>1733207149806</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733207149806</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add: login api">
+      <option name="closed" value="true" />
+      <created>1733209070303</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733209070303</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add: set jwt expires time">
+      <option name="closed" value="true" />
+      <created>1733209299139</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733209299139</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add: course foreign key userid">
+      <option name="closed" value="true" />
+      <created>1733209632723</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733209632723</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add: course foreign key userid">
+      <option name="closed" value="true" />
+      <created>1733209821213</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733209821213</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add: course foreign key userid">
+      <option name="closed" value="true" />
+      <created>1733209843240</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733209843240</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: set jwt identity user_id">
+      <option name="closed" value="true" />
+      <created>1733210344400</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733210344400</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: course error user_id type">
+      <option name="closed" value="true" />
+      <created>1733213429383</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733213429383</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: course error user_id type">
+      <option name="closed" value="true" />
+      <created>1733213455991</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733213455991</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add: add_course api">
+      <option name="closed" value="true" />
+      <created>1733213548052</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733213548052</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add: add_memo api">
+      <option name="closed" value="true" />
+      <created>1733214760668</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733214760668</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add: gpt api">
+      <option name="closed" value="true" />
+      <created>1733284352730</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733284352730</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix: get all courses route">
+      <option name="closed" value="true" />
+      <created>1733291918421</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1733291918421</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix: delete course route">
+      <option name="closed" value="true" />
+      <created>1733292186845</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1733292186845</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix: add memo mapper">
+      <option name="closed" value="true" />
+      <created>1733292876138</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1733292876138</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix: delete/get memo route">
+      <option name="closed" value="true" />
+      <created>1733293186215</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1733293186215</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add: update user route and mapper">
+      <option name="closed" value="true" />
+      <created>1733294662066</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1733294662066</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add: update user route and mapper">
+      <option name="closed" value="true" />
+      <created>1733294667665</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1733294667665</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add CORS support to Flask app for cross-origin requests">
+      <option name="closed" value="true" />
+      <created>1733466040045</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1733466040046</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Enhance memo API to include course names and format response">
+      <option name="closed" value="true" />
+      <created>1733470316955</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1733470316955</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add get_user API and enhance user service">
+      <option name="closed" value="true" />
+      <created>1733472563847</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1733472563847</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Refactor course data structure and response format">
+      <option name="closed" value="true" />
+      <created>1733472740166</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1733472740166</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Update memo fields and database schema for consistency">
+      <option name="closed" value="true" />
+      <created>1733490235575</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1733490235575</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Refactor add_memo API to match new data structure">
+      <option name="closed" value="true" />
+      <created>1733490248370</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1733490248370</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Refactor memo fields in service and mapper for consistency">
+      <option name="closed" value="true" />
+      <created>1733494678341</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1733494678341</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Update Home.jsx to use correct memo fields for events">
+      <option name="closed" value="true" />
+      <created>1733494686986</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1733494686986</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Add update_password API and simplify update_user">
+      <option name="closed" value="true" />
+      <created>1733539058436</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1733539058436</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Add user update, refine UI, and enhance form handling">
+      <option name="closed" value="true" />
+      <created>1733539066660</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1733539066660</updated>
+    </task>
+    <task id="LOCAL-00031" summary="update default avatar">
+      <option name="closed" value="true" />
+      <created>1733539087784</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1733539087784</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update default avatar">
+      <option name="closed" value="true" />
+      <created>1733542042210</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1733542042210</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor: mapper.py" />
+    <MESSAGE value="add: login api" />
+    <MESSAGE value="add: set jwt expires time" />
+    <MESSAGE value="add: course foreign key userid" />
+    <MESSAGE value="fix: set jwt identity user_id" />
+    <MESSAGE value="fix: course error user_id type" />
+    <MESSAGE value="add: add_course api" />
+    <MESSAGE value="add: add_memo api" />
+    <MESSAGE value="add: gpt api" />
+    <MESSAGE value="fix: get all courses route" />
+    <MESSAGE value="fix: delete course route" />
+    <MESSAGE value="fix: add memo mapper" />
+    <MESSAGE value="fix: delete/get memo route" />
+    <MESSAGE value="add: update user route and mapper" />
+    <MESSAGE value="Add CORS support to Flask app for cross-origin requests" />
+    <MESSAGE value="Enhance memo API to include course names and format response" />
+    <MESSAGE value="Add get_user API and enhance user service" />
+    <MESSAGE value="Refactor course data structure and response format" />
+    <MESSAGE value="Update memo fields and database schema for consistency" />
+    <MESSAGE value="Refactor add_memo API to match new data structure" />
+    <MESSAGE value="Refactor memo fields in service and mapper for consistency" />
+    <MESSAGE value="Update Home.jsx to use correct memo fields for events" />
+    <MESSAGE value="Add update_password API and simplify update_user" />
+    <MESSAGE value="Add user update, refine UI, and enhance form handling" />
+    <MESSAGE value="update default avatar" />
+    <option name="LAST_COMMIT_MESSAGE" value="update default avatar" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TODO$backend.coverage" NAME="backend 覆盖结果" MODIFIED="1733551156527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/TODO$app.coverage" NAME="app 覆盖结果" MODIFIED="1732607726122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/TODO$utils.coverage" NAME="utils 覆盖结果" MODIFIED="1732605870074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/TODO$mapper.coverage" NAME="mapper 覆盖结果" MODIFIED="1733486567070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/TODO$TODO.coverage" NAME="TODO 覆盖结果" MODIFIED="1733470622623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

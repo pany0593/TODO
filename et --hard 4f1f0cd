@@ -1,0 +1,55 @@
+[33mc917194[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: rebase (finish): returning to refs/heads/main
+[33mc917194[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{1}: rebase (start): checkout c91719437f80ff99a297de033248c2b529d679ef
+[33m4f1f0cd[m HEAD@{2}: commit: Add courses section to LeftPanel and adjust layout
+[33mc917194[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{3}: commit: Add courses section to LeftPanel and adjust layout
+[33mf9c036a[m HEAD@{4}: commit: Add courses section to LeftPanel and adjust layout
+[33me11a419[m HEAD@{5}: commit: Refactor course data structure and response format
+[33m8fe7b43[m HEAD@{6}: commit: Add get_user API and enhance user service
+[33m9dc45b7[m HEAD@{7}: commit: Enhance memo API to include course names and format response
+[33mb5cfda3[m HEAD@{8}: commit: Remove userid from localStorage on logout
+[33m7b0285f[m HEAD@{9}: commit: Add get_memos API and integrate with CalendarWeek
+[33ma7dd169[m HEAD@{10}: commit: Add CORS support to Flask app for cross-origin requests
+[33m5453f24[m HEAD@{11}: commit: Add memo functionality with API integration and form handling
+[33m0a0de03[m HEAD@{12}: commit: Refactor API requests and remove duplicates
+[33mc3ef035[m HEAD@{13}: commit: Remove unused Link import in User page
+[33m3ef5fc8[m HEAD@{14}: commit: Add register functionality with API call and navigation
+[33mc074a48[m HEAD@{15}: commit: Add logout functionality and useNavigate in User page
+[33ma67e96f[m HEAD@{16}: commit: Add login functionality with API call and navigation
+[33md0e9544[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{17}: commit (merge): Merge remote-tracking branch 'origin/main'
+[33m34e233e[m HEAD@{18}: commit: Add logout button and style to User page
+[33m9daea35[m HEAD@{19}: commit: Update submit button colors in LoginRegister.css
+[33m33fbf02[m HEAD@{20}: commit: Add Login and Register pages with routing and styles
+[33m40c5557[m HEAD@{21}: commit: Add Link to TopBar title for routing
+[33m7937c0e[m HEAD@{22}: commit: Add User page with form and styles
+[33m72faf73[m HEAD@{23}: commit: Add routing, new components, and manage state in Home
+[33m3b4519a[m HEAD@{24}: commit: Add AddMemo component and manage state in App
+[33m3afea76[m HEAD@{25}: commit: Complete the basic page layout
+[33m0f81f1c[m HEAD@{26}: commit: add: TopBar and TopButton components
+[33m8646ab8[m HEAD@{27}: commit: add: TopBar and TopButton components
+[33m9acdb39[m HEAD@{28}: commit: fix: update event dates and optimize imports
+[33m16bf596[m HEAD@{29}: commit: update: App.css
+[33m7c5db23[m HEAD@{30}: commit: add: CalendarWeek
+[33m2934126[m HEAD@{31}: commit: add: ini frontend
+[33m14382ee[m HEAD@{32}: commit: add: ini frontend
+[33m21d55cd[m HEAD@{33}: commit: add: ini frontend
+[33m66d4037[m HEAD@{34}: commit: add: update user route and mapper
+[33macc3fcc[m HEAD@{35}: commit: add: update user route and mapper
+[33ma558175[m HEAD@{36}: commit: fix: delete/get memo route
+[33m8b76b67[m HEAD@{37}: commit: fix: add memo mapper
+[33mb8dff1c[m HEAD@{38}: commit: fix: delete course route
+[33m3690fd3[m HEAD@{39}: commit: fix: get all courses route
+[33m48fd420[m HEAD@{40}: commit: add: gpt api
+[33mab543be[m HEAD@{41}: commit: add: add_memo api
+[33m998d566[m HEAD@{42}: commit: add: add_course api
+[33m8773769[m HEAD@{43}: commit: fix: course error user_id type
+[33m7be85c4[m HEAD@{44}: commit: fix: course error user_id type
+[33m4749edb[m HEAD@{45}: commit: fix: set jwt identity user_id
+[33me9d534f[m HEAD@{46}: commit: add: course foreign key userid
+[33m66dcb69[m HEAD@{47}: commit: add: course foreign key userid
+[33m2034c50[m HEAD@{48}: commit: add: course foreign key userid
+[33m61679a4[m HEAD@{49}: commit: add: set jwt expires time
+[33m9c1385c[m HEAD@{50}: commit: add: login api
+[33m2c116a5[m HEAD@{51}: commit: refactor: mapper.py
+[33m7c6f5b9[m HEAD@{52}: commit: first commit
+[33m793bb40[m HEAD@{53}: Branch: renamed refs/heads/master to refs/heads/main
+[33m793bb40[m HEAD@{55}: commit (initial): first commit
